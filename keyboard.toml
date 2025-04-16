@@ -38,6 +38,8 @@ keymap = [
 ]
 
 [storage]
+enabled = true
+clear_storage = true
 
 [split]
 connection = "serial"
