@@ -1,47 +1,71 @@
 # Documentation: https://haobogu.github.io/rmk/keyboard_configuration.html
 [keyboard]
-name = "RMK Keyboard"
-product_name = "RMK Keyboard"
+name = "dactyl_skelytal"
+product_name = "dactyl_skelytal"
 vendor_id = 0x4c4b
 product_id = 0x4643
 manufacturer = "haobo"
 chip = "rp2040"
 
-[matrix]
+# [matrix]
 # Input and output pins are mandatory
-input_pins = ["PIN_6", "PIN_7", "PIN_8", "PIN_9"]
-output_pins = ["PIN_19", "PIN_20", "PIN_21"]
+# input_pins = ["PIN_6", "PIN_7", "PIN_8", "PIN_9"]
+# output_pins = ["PIN_19", "PIN_20", "PIN_21"]
 # WARNING: Currently row2col/col2row is set in RMK's feature gate, configs here do nothing actually
 # row2col = true
 
 [layout]
-rows = 4
-cols = 3
-layers = 2
+rows = 6
+cols = 12
+layers = 5
 keymap = [
     [
-        ["A", "B", "C"],
-        ["Kc1", "Kc2", "Kc3"],
-        ["LCtrl", "MO(1)", "LShift"],
-        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"]
-    ],
-    [
-        ["_", "TT(1)", "TG(2)"],
-        ["_", "_", "_"],
-        ["_", "_", "_"],
-        ["_", "_", "_"]
-    ],
+        ["_", "Q", "W", "E", "R", "T",     "Y", "U", "I", "O", "P", "_"],
+        ["_", "A", "S", "D", "F", "G",     "H", "J", "K", "L", "Semicolon", "_"],
+        ["_", "Z", "X", "C", "V", "B",     "N", "M", "M", "_", "Slash", "_"],
+        ["_", "Kc0", "Kc1", "Kc2", "Kc3", "Kc4",     "Kc5", "Kc6", "Kc7", "Kc8", "Kc9", "_"],
+        ["_", "A", "B", "C", "D", "E",     "F", "G", "H", "I", "J", "_"],
+        ["_", "A", "B", "C", "D", "E",     "F", "G", "H", "I", "J", "_"]
+     ],
+     [
+        ["_", "Q", "W", "E", "R", "T",     "Y", "U", "I", "O", "P", "_"],
+        ["_", "A", "S", "D", "F", "G",     "H", "J", "K", "L", "Semicolon", "_"],
+        ["_", "Z", "X", "C", "V", "B",     "N", "M", "_", "_", "Slash", "_"],
+        ["_", "_", "_", "_", "_", "_",     "_", "_", "_", "_", "_", "_"],
+        ["_", "_", "_", "_", "_", "_",     "_", "_", "_", "_", "_", "_"],
+        ["_", "_", "_", "_", "_", "_",     "_", "_", "_", "_", "_", "_"]
+     ],
 ]
 
-[light]
-# All light pins are high-active by default, uncomment if you want it to be low-active
-# capslock.pin = "PB2"
-# capslock.low_active = true
-# scrolllock.pin = "PA3"
-# scrolllock.low_active = true
-# Just ignore if no light pin is used for it
-# numslock.pin = "PA5"
-# numslock.low_active = true
+[storage]
+
+[split]
+connection = "serial"
+
+[split.central]
+rows = 6
+cols = 6
+row_offset = 0
+col_offset = 0
+serial = [
+    { instance = "UART0", tx_pin = "PIN_0", rx_pin = "PIN_1" },
+]
+[split.central.matrix]
+matrix_type = "normal"
+input_pins =  ["PIN_27", "PIN_26", "PIN_18", "PIN_20", "PIN_19", "PIN_10"]
+output_pins = ["PIN_4",  "PIN_5",  "PIN_6",  "PIN_7",  "PIN_8",  "PIN_9"]
+
+[[split.peripheral]]
+rows = 6
+cols = 6
+row_offset = 0
+col_offset = 5
+serial = [{ instance = "UART0", tx_pin = "PIN_0", rx_pin = "PIN_1" }]
+[split.peripheral.matrix]
+matrix_type = "normal"
+
+input_pins =  ["PIN_27", "PIN_26", "PIN_18", "PIN_20", "PIN_19", "PIN_10"]
+output_pins = ["PIN_4",  "PIN_5",  "PIN_6",  "PIN_7",  "PIN_8",  "PIN_9"]
 
 
 
