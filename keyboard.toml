@@ -54,8 +54,8 @@ serial = [
 ]
 [split.central.matrix]
 matrix_type = "normal"
-input_pins =  ["PIN_27", "PIN_26", "PIN_18", "PIN_20", "PIN_19", "PIN_10"]
-output_pins = ["PIN_4",  "PIN_5",  "PIN_6",  "PIN_7",  "PIN_8",  "PIN_9"]
+input_pins =  ["PIN_4",  "PIN_5",  "PIN_6",  "PIN_7",  "PIN_8",  "PIN_9"]
+output_pins = ["PIN_27", "PIN_26", "PIN_18", "PIN_20", "PIN_19", "PIN_10"]
 
 [[split.peripheral]]
 rows = 6
